@@ -1,6 +1,6 @@
 using System;
 
-namespace PostgreSqlCRUD.Models
+namespace Clinic.Models
 {
     public class User
 

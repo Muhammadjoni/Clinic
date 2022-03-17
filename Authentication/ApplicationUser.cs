@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace JWTAuthentication.Authentication
+namespace Clinic.Authentication
 {
   public class ApplicationUser : IdentityUser
   {

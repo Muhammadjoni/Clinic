@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using PostgreSqlCRUD.Models;
+using Clinic.Models;
 
-namespace PostgresCRUD.DataAccess
+namespace Clinic.DataAccess
 {
   public class DataAccessProvider : IDataAccessProvider
   {
-    private readonly PostgreSqlContext _context;
+    private readonly ClinicContext _context;
 
     public List<User> UserRecords => _context.Users.ToList();
 

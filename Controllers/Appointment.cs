@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Appointment.Controllers
+namespace Clinic.Controllers
 {
   [Authorize]
   [ApiController]

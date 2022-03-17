@@ -1,4 +1,4 @@
-namespace Appointment.Models
+namespace Clinic.Models
 {
   public class Appointment
   {

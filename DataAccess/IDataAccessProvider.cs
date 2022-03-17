@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using PostgreSqlCRUD.Models;
+using Clinic.Models;
 
-namespace PostgresCRUD.DataAccess
+namespace Clinic.DataAccess
 {
   public interface IDataAccessProvider
   {

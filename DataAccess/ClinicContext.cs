@@ -1,12 +1,12 @@
+using Clinic.Models;
 using Microsoft.EntityFrameworkCore;
-using PostgreSqlCRUD.Models;
-using PostgresCRUD;
 
-namespace PostgresCRUD.DataAccess
+
+namespace Clinic.DataAccess
 {
-  public class PostgreSqlContext : DbContext
+  public class ClinicContext : DbContext
   {
-    public PostgreSqlContext(DbContextOptions<PostgreSqlContext> options) : base(options)
+    public ClinicContext(DbContextOptions<ClinicContext> options) : base(options)
     {
     }
 

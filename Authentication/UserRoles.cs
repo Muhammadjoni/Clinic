@@ -1,4 +1,4 @@
-namespace JWTAuthentication.Authentication
+namespace Clinic.Authentication
 {
   public static class UserRoles
   {

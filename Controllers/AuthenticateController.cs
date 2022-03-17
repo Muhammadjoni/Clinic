@@ -4,14 +4,14 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using JWTAuthentication.Authentication;
+using Clinic.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace JWTAuthentication.Controllers
+namespace Clinic.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]

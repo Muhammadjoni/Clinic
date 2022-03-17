@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using JWTAuthentication.Authentication;
+using Clinic.Authentication;
+using Clinic.DataAccess;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,7 +35,12 @@ namespace Clinic
             services.AddControllers();
 
             // For Entity Framework
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
+            // services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
+
+            var ConnectionString = Configuration["ClinicConnection"];
+            services.AddDbContext<ClinicContext>(options => options.UseNpgsql(ConnectionString));
+
+            services.AddScoped<IDataAccessProvider, DataAccessProvider>();
 
             // For Identity
             services.AddIdentity<ApplicationUser, IdentityRole>()
