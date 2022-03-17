@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/jon/code/CXunicorn/2_assessment/Clinic/Clinic.csproj": {}
+    "/home/jon/code/Muhammadjoni/Clinic/Clinic.csproj": {}
   },
   "projects": {
-    "/home/jon/code/CXunicorn/2_assessment/Clinic/Clinic.csproj": {
+    "/home/jon/code/Muhammadjoni/Clinic/Clinic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jon/code/CXunicorn/2_assessment/Clinic/Clinic.csproj",
+        "projectUniqueName": "/home/jon/code/Muhammadjoni/Clinic/Clinic.csproj",
         "projectName": "Clinic",
-        "projectPath": "/home/jon/code/CXunicorn/2_assessment/Clinic/Clinic.csproj",
+        "projectPath": "/home/jon/code/Muhammadjoni/Clinic/Clinic.csproj",
         "packagesPath": "/home/jon/.nuget/packages/",
-        "outputPath": "/home/jon/code/CXunicorn/2_assessment/Clinic/obj/",
+        "outputPath": "/home/jon/code/Muhammadjoni/Clinic/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jon/.nuget/NuGet/NuGet.Config"
@@ -49,6 +49,10 @@
               "version": "[3.1.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",
               "version": "[3.1.0, )"
             },

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using PostgreSqlCRUD.Models;
@@ -9,6 +10,7 @@ namespace PostgresCRUD.DataAccess
     private readonly PostgreSqlContext _context;
 
     public List<User> UserRecords => _context.Users.ToList();
+
 
     public User GetUserSingleRecord(string id) => _context.Users.FirstOrDefault(t => t.id == id);
 
