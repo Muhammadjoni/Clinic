@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Clinic.Authentication;
 using Clinic.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,8 +15,9 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Clinic.Controllers
 {
-  [Route("api/[controller]")]
+  [Authorize]
   [ApiController]
+  [Route("api/[controller]")]
     public class UserController : ControllerBase
   {
     private readonly UserManager<User> userManager;
