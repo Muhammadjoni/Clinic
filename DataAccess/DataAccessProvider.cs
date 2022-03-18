@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Clinic.Data;
 using Clinic.Models;
 
 namespace Clinic.DataAccess
@@ -8,58 +9,33 @@ namespace Clinic.DataAccess
   public class DataAccessProvider : IDataAccessProvider
 
   {
-    private readonly ClinicContext _context ;
+    private readonly ClinicDbContext _context ;
 
-    public DataAccessProvider(ClinicContext context)
+    public DataAccessProvider(ClinicDbContext context)
     {
       _context = context ;
     }
 
-    List<User> IDataAccessProvider.GetUserRecords => throw new NotImplementedException();
+    List<User> IDataAccessProvider.GetUserRecords => _context.Users.ToList();
 
-    User IDataAccessProvider.GetUserSingleRecord(int id)
-    {
-      throw new NotImplementedException();
-    }
+    User IDataAccessProvider.GetUserSingleRecord(int id) => _context.Users.FirstOrDefault(t => t.id == id);
     void IDataAccessProvider.AddUserRecord(User user)
     {
-      throw new NotImplementedException();
+      _context.Users.Add(user);
+      _context.SaveChanges();
     }
 
     void IDataAccessProvider.DeleteUserRecord(int id)
     {
-      throw new NotImplementedException();
+      var entity = _context.Users.FirstOrDefault(t => t.id == id);
+      _context.Users.Remove(entity);
+      _context.SaveChanges();
     }
 
     void IDataAccessProvider.UpdateUserRecord(User user)
     {
-      throw new NotImplementedException();
+      _context.Users.Update(user);
+      _context.SaveChanges();
     }
-
-    // public void AddUserRecord(User user)
-    // {
-    //   _context.Users.Add(user);
-    //   _context.SaveChanges();
-    // }
-
-    // public void UpdateUserRecord(User user)
-    // {
-    //   _context.Users.Update(user);
-    //   _context.SaveChanges();
-    // }
-
-    // public void DeleteUserRecord(string id)
-    // {
-    //   var entity = _context.Users.FirstOrDefault(t => t.id == id );
-    //   _context.Users.Remove(entity);
-    //   _context.SaveChanges();
-    // }
-    // public List<User> IDataAccessProvider.UserRecords()
-    // {
-    //   _context.Users.ToList();
-    // }
-
-    // public User GetUserSingleRecord(int id) => _context.Users.FirstOrDefault(t => t.id == id);
-
   }
 }

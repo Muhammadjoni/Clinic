@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Clinic.Authentication;
+using Clinic.Data;
 using Clinic.DataAccess;
+using Clinic.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,12 +37,12 @@ namespace Clinic
             services.AddControllers();
 
             // For Entity Framework
-            services.AddDbContext<ClinicContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ClinicConnection")));
+            services.AddDbContext<ClinicDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ClinicConnection")));
 
             services.AddScoped<IDataAccessProvider, DataAccessProvider>();
 
             // For Identity
-            services.AddIdentity<ClinicUser, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ClinicDbContext>()
                 .AddDefaultTokenProviders();
 

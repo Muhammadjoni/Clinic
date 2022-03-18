@@ -38,7 +38,7 @@ namespace Clinic.Controllers
 
       ClinicUser user = new ClinicUser()
       {
-        Email = model.Email,
+        Email = model.email,
         SecurityStamp = Guid.NewGuid().ToString(),
         UserName = model.Username
       };
@@ -99,7 +99,7 @@ namespace Clinic.Controllers
 
       ClinicUser user = new ClinicUser()
       {
-        Email = model.Email,
+        Email = model.email,
         SecurityStamp = Guid.NewGuid().ToString(),
         UserName = model.Username
       };
