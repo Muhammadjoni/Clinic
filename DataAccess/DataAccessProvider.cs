@@ -6,30 +6,60 @@ using Clinic.Models;
 namespace Clinic.DataAccess
 {
   public class DataAccessProvider : IDataAccessProvider
+
   {
-    private readonly ClinicContext _context;
+    private readonly ClinicContext _context ;
 
-    public List<User> UserRecords => _context.Users.ToList();
-
-    public User GetUserSingleRecord(string id) => _context.Users.FirstOrDefault(t => t.id == id);
-
-    public void AddUserRecord(User user)
+    public DataAccessProvider(ClinicContext context)
     {
-      _context.Users.Add(user);
-      _context.SaveChanges();
+      _context = context ;
     }
 
-    public void UpdateUserRecord(User user)
+    List<User> IDataAccessProvider.GetUserRecords => throw new NotImplementedException();
+
+    User IDataAccessProvider.GetUserSingleRecord(int id)
     {
-      _context.Users.Update(user);
-      _context.SaveChanges();
+      throw new NotImplementedException();
+    }
+    void IDataAccessProvider.AddUserRecord(User user)
+    {
+      throw new NotImplementedException();
     }
 
-    public void DeleteUserRecord(string id)
+    void IDataAccessProvider.DeleteUserRecord(int id)
     {
-      var entity = _context.Users.FirstOrDefault(t => t.id == id );
-      _context.Users.Remove(entity);
-      _context.SaveChanges();
+      throw new NotImplementedException();
     }
+
+    void IDataAccessProvider.UpdateUserRecord(User user)
+    {
+      throw new NotImplementedException();
+    }
+
+    // public void AddUserRecord(User user)
+    // {
+    //   _context.Users.Add(user);
+    //   _context.SaveChanges();
+    // }
+
+    // public void UpdateUserRecord(User user)
+    // {
+    //   _context.Users.Update(user);
+    //   _context.SaveChanges();
+    // }
+
+    // public void DeleteUserRecord(string id)
+    // {
+    //   var entity = _context.Users.FirstOrDefault(t => t.id == id );
+    //   _context.Users.Remove(entity);
+    //   _context.SaveChanges();
+    // }
+    // public List<User> IDataAccessProvider.UserRecords()
+    // {
+    //   _context.Users.ToList();
+    // }
+
+    // public User GetUserSingleRecord(int id) => _context.Users.FirstOrDefault(t => t.id == id);
+
   }
 }

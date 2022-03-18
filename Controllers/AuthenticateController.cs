@@ -17,11 +17,11 @@ namespace Clinic.Controllers
   [ApiController]
     public class AuthenticationController : ControllerBase
   {
-    private readonly UserManager<ApplicationUser> userManager;
+    private readonly UserManager<ClinicUser> userManager;
     private readonly RoleManager<IdentityRole> roleManager;
     private readonly IConfiguration _configuration;
 
-    public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+    public AuthenticationController(UserManager<ClinicUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
     {
       this.userManager = userManager;
       this.roleManager = roleManager;
@@ -36,7 +36,7 @@ namespace Clinic.Controllers
       if (userExists != null)
         return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
 
-      ApplicationUser user = new ApplicationUser()
+      ClinicUser user = new ClinicUser()
       {
         Email = model.Email,
         SecurityStamp = Guid.NewGuid().ToString(),
@@ -97,7 +97,7 @@ namespace Clinic.Controllers
       if (userExists != null)
         return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
 
-      ApplicationUser user = new ApplicationUser()
+      ClinicUser user = new ClinicUser()
       {
         Email = model.Email,
         SecurityStamp = Guid.NewGuid().ToString(),

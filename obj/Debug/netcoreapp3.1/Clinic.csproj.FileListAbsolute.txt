@@ -53,3 +53,10 @@
 /home/jon/code/CXunicorn/2_assessment/Clinic/obj/Debug/netcoreapp3.1/Clinic.genruntimeconfig.cache
 /home/jon/code/CXunicorn/2_assessment/Clinic/bin/Debug/netcoreapp3.1/Npgsql.dll
 /home/jon/code/CXunicorn/2_assessment/Clinic/bin/Debug/netcoreapp3.1/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/home/jon/code/Muhammadjoni/Clinic/obj/Debug/netcoreapp3.1/Clinic.csprojAssemblyReference.cache
+/home/jon/code/Muhammadjoni/Clinic/obj/Debug/netcoreapp3.1/Clinic.AssemblyInfoInputs.cache
+/home/jon/code/Muhammadjoni/Clinic/obj/Debug/netcoreapp3.1/Clinic.AssemblyInfo.cs
+/home/jon/code/Muhammadjoni/Clinic/obj/Debug/netcoreapp3.1/Clinic.csproj.CoreCompileInputs.cache
+/home/jon/code/Muhammadjoni/Clinic/obj/Debug/netcoreapp3.1/Clinic.MvcApplicationPartsAssemblyInfo.cache
+/home/jon/code/Muhammadjoni/Clinic/obj/Debug/netcoreapp3.1/Clinic.dll
+/home/jon/code/Muhammadjoni/Clinic/obj/Debug/netcoreapp3.1/Clinic.pdb

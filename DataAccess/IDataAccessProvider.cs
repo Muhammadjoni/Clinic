@@ -7,8 +7,8 @@ namespace Clinic.DataAccess
   {
     void AddUserRecord(User user);
     void UpdateUserRecord(User user);
-    void DeleteUserRecord(string id);
-    User GetUserSingleRecord(string id);
-    List<User> UserRecords { get; }
+    void DeleteUserRecord(int id);
+    User GetUserSingleRecord(int id);
+    List<User> GetUserRecords { get; }
   }
 }

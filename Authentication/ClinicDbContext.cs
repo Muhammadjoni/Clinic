@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Clinic.Authentication
 {
-  public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+  public class ClinicDbContext : IdentityDbContext<ClinicUser>
   {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    public ClinicDbContext(DbContextOptions<ClinicDbContext> options) : base(options)
     {
 
     }

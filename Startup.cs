@@ -35,16 +35,13 @@ namespace Clinic
             services.AddControllers();
 
             // For Entity Framework
-            // services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
-
-            var ConnectionString = Configuration["ClinicConnection"];
-            services.AddDbContext<ClinicContext>(options => options.UseNpgsql(ConnectionString));
+            services.AddDbContext<ClinicContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ClinicConnection")));
 
             services.AddScoped<IDataAccessProvider, DataAccessProvider>();
 
             // For Identity
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+            services.AddIdentity<ClinicUser, IdentityRole>()
+                .AddEntityFrameworkStores<ClinicDbContext>()
                 .AddDefaultTokenProviders();
 
             // Adding Authentication
