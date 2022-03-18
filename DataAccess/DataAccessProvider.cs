@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Clinic.Data;
+using Clinic.DataAccess;
 using Clinic.Models;
 
 namespace Clinic.DataAccess

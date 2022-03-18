@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Clinic.Authentication;
-using Clinic.Data;
 using Clinic.DataAccess;
 using Clinic.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
