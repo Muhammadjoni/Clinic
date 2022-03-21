@@ -51,10 +51,7 @@ namespace Clinic
               options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
               options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
               options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-
-            // Adding Jwt Bearer
-            .AddJwtBearer(options =>
+            }).AddJwtBearer(options =>                        // Adding Jwt Bearer
             {
               options.SaveToken = true;
               options.RequireHttpsMetadata = false;
