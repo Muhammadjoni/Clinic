@@ -8,6 +8,5 @@ namespace Clinic.Models
     public int Id { get; set; }
     public DateTime BookingDate { get; set; }
     public DateTime BookingTime { get; set; }
-
   }
 }

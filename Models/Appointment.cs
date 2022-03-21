@@ -1,3 +1,5 @@
+using System;
+
 namespace Clinic.Models
 {
   public class Appointment
@@ -5,5 +7,7 @@ namespace Clinic.Models
     public int Id { get; set; }
     public int AppointmentDuration { get; set; }
     public int  Rooom { get; set; }
+    public DateTime StartTime { get; set; }
+    public DateTime EndTime { get; set; }
   }
 }
