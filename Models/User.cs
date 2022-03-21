@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Clinic.Models
 {
+    // [Index(nameof(email), IsUnique = true)]
     public class User : IdentityUser
 
     {
