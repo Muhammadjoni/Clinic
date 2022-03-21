@@ -78,13 +78,20 @@ namespace Clinic
 
             app.UseRouting();
 
+            // app.UseDefaultFiles();
+            // app.UseStaticFiles();
+
             app.UseAuthentication();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                // endpoints.MapControllers();
+                endpoints.MapControllerRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+                // endpoints.MapControllerRoute(
+                //   name: "default",
+                //   pattern: "{controller=Home}/{action=HomePage}/{id?}");
             });
         }
     }
