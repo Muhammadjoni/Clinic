@@ -6,7 +6,7 @@ namespace Clinic.Models
   {
     public int Id { get; set; }
     public int AppointmentDuration { get; set; }
-    public int  Rooom { get; set; }
+    public int  Room { get; set; }
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
   }
