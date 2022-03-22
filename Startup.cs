@@ -33,8 +33,13 @@ namespace Clinic
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            // services.RegisterServices();
 
+            // string _key =
+            // services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
+
+            services.AddControllers();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
             // For Entity Framework
             services.AddDbContext<ClinicDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ClinicConnection")));
 
@@ -73,7 +78,10 @@ namespace Clinic
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            else
+            {
+              app.UseMvc();
+            }
                 // app.UseSwaggerUI(c =>
                 //                 {  c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 //                 });
@@ -92,7 +100,7 @@ namespace Clinic
             app.UseEndpoints(endpoints =>
             {
                 // endpoints.MapControllers();
-                endpoints.MapControllerRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
                 // endpoints.MapControllerRoute(
                 //   name: "default",
                 //   pattern: "{controller=Home}/{action=HomePage}/{id?}");

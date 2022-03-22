@@ -1,17 +1,17 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Clinic.Models;
 using Microsoft.EntityFrameworkCore;
-
+using Clinic.Authentication;
 
 namespace Clinic.DataAccess
 {
-  public class ClinicDbContext : IdentityDbContext<User>
+  public class ClinicDbContext : IdentityDbContext<AppUser>
   {
     public ClinicDbContext(DbContextOptions<ClinicDbContext> options) : base(options)
     {
     }
 
-    public DbSet<User> User { get; set; }
+    public DbSet<Appointment> Appointment { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
