@@ -17,15 +17,15 @@ using Microsoft.IdentityModel.Tokens;
 namespace Clinic.Controllers
 {
   [Authorize]
-  [Route("api/[controller]")]
+  [Route("api/user")]
   [ApiController]
-  public class AuthenticationController : ControllerBase
+  public class UserController : ControllerBase
   {
     private readonly UserManager<User> userManager;
     private readonly RoleManager<IdentityRole> roleManager;
     private readonly IConfiguration _configuration;
 
-    public AuthenticationController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+    public UserController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
     {
       this.userManager = userManager;
       this.roleManager = roleManager;
