@@ -43,7 +43,7 @@ namespace Clinic
             // For Entity Framework
             services.AddDbContext<ClinicDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ClinicConnection")));
 
-            services.AddScoped<IDataAccessProvider, DataAccessProvider>();
+            // services.AddScoped<IDataAccessProvider, DataAccessProvider>();
 
             // For Identity
             services.AddIdentity<User, IdentityRole>()
@@ -77,10 +77,7 @@ namespace Clinic
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-              app.UseMvc();
+
             }
                 // app.UseSwaggerUI(c =>
                 //                 {  c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");

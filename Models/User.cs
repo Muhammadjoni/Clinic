@@ -1,7 +1,3 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Identity;
-
 namespace Clinic.Models
 {
     // [Index(nameof(email), IsUnique = true)]
