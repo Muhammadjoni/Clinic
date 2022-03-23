@@ -39,7 +39,11 @@ namespace Clinic
             // services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
 
             services.AddControllers();
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+            // services.AddSwaggerGen(c =>
+            // {
+            //   c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication2", Version = "v1" });
+            // });
+            // services.AddMvc(options => options.EnableEndpointRouting = false);
             // For Entity Framework
             services.AddDbContext<ClinicDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ClinicConnection")));
 
@@ -75,14 +79,11 @@ namespace Clinic
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-
-            }
-                // app.UseSwaggerUI(c =>
-                //                 {  c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-                //                 });
-
+        {
+          app.UseDeveloperExceptionPage();
+        //   app.UseSwagger();
+        //   app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApplication2 v1"));
+        }
             app.UseHttpsRedirection();
 
             app.UseRouting();

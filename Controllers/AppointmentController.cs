@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Clinic.Authentication;
 using Clinic.DataAccess;
+using Clinic.Helpers;
 using Clinic.Models;
 using Clinic.Response;
 using Microsoft.AspNetCore.Authorization;
@@ -25,19 +26,19 @@ namespace Clinic.Controllers
         this.context = context;
       }
 
-      //Book an appointment (Patient only)
-      // [Authorize(Roles = UserRoles.Patient)]
-      // [HttpPost]
-      // public async Task<Appointment> BookSlot([FromBody] SlotRequest newSlot)
-      // {
-      //   Guid gid = Guid.NewGuid();
-      //   var records = (newSlot).MapProperties<Appointment>();
-      //   records.Id = gid.ToString();
-      //   //  records.Status = "Pending";
-      //   context.Appointment.Add(records);
-      //   await context.SaveChangesAsync();
-      //   return records;
-      // }
+      // Book an appointment (Patient only)
+      [Authorize(Roles = UserRoles.Patient)]
+      [HttpPost]
+      public async Task<Appointment> BookSlot([FromBody] SlotRequest newSlot)
+      {
+        Guid gid = Guid.NewGuid();
+        var records = (newSlot).MapProperties<Appointment>();
+        records.Id = gid.ToString();
+        //  records.Status = "Pending";
+        context.Appointment.Add(records);
+        await context.SaveChangesAsync();
+        return records;
+      }
 
       //Cancel appoinment
       [HttpPatch("cancel/{id}")]
