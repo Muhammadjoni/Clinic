@@ -23,14 +23,9 @@ namespace Clinic
 {
     public class Startup
     {
-      private IConfigurationRoot _config;
-        public Startup(IConfiguration configuration, IWebHostEnvironment env/*add this here*/)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            var ConfigBuilder = new ConfigurationBuilder().SetBasePath(env.ContentRootPath)
-                        .AddJsonFile("appsettings.json");
-            _config = ConfigBuilder.Build();
-
         }
 
         public IConfiguration Configuration { get; }
@@ -42,12 +37,12 @@ namespace Clinic
 
             // string _key =
             // services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
-            services.AddSingleton(_config);
-            services.AddDbContext<ClinicDbContext>();
-      // options => options.UseNpgsql(Configuration.GetConnectionString("ClinicConnection"))
+
             services.AddControllers();
             services.AddMvc(options => options.EnableEndpointRouting = false);
             // For Entity Framework
+            services.AddDbContext<ClinicDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ClinicConnection")));
+
             // services.AddScoped<IDataAccessProvider, DataAccessProvider>();
 
             // For Identity
@@ -61,7 +56,7 @@ namespace Clinic
               options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
               options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
               options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>                  // Adding Jwt Bearer
+            }).AddJwtBearer(options =>                        // Adding Jwt Bearer
             {
               options.SaveToken = true;
               options.RequireHttpsMetadata = false;
