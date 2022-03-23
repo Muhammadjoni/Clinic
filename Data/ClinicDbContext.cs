@@ -3,7 +3,7 @@ using Clinic.Models;
 using Microsoft.EntityFrameworkCore;
 using Clinic.Authentication;
 
-namespace Clinic.Models
+namespace Clinic.Data
 {
   public class ClinicDbContext : IdentityDbContext<AppUser>
   {
