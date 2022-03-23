@@ -1,18 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Clinic.DataAccess;
 using Clinic.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Clinic.Controllers
 {
   [ApiController]
-  [Route("api/[controller]")]
-  public class DoctorController : ControllerBase
+  [Route("api/doctors")]
+  public class DoctorsController : ControllerBase
   {
     private readonly ClinicDbContext context;
-    public DoctorController(ClinicDbContext context)
+    public DoctorsController(ClinicDbContext context)
     {
       this.context = context;
     }
@@ -39,11 +38,11 @@ namespace Clinic.Controllers
     [HttpGet("{id}")]
     public DocInfo GetDoctorByID(string id)
     {
-      DocInfo resp = new DocInfo();
-      resp.DoctorId = id;
-      resp.Name = context.Users.Where(d => d.Id.Equals(id)).Select(x => x.UserName).Single();
-      // resp.Slots = context.Appointments.Where(d => d.Id.Equals(id)).ToList();
-      return resp;
+      DocInfo info = new DocInfo();
+      info.DoctorId = id;
+      info.Name = context.Users.Where(d => d.Id.Equals(id)).Select(x => x.UserName).Single();
+      // info.Slots = context.Appointments.Where(d => d.Id.Equals(id)).ToList();
+      return info;
     }
 
     //View doctor => available slots

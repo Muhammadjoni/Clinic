@@ -3,7 +3,7 @@ using Clinic.Models;
 using Microsoft.EntityFrameworkCore;
 using Clinic.Authentication;
 
-namespace Clinic.DataAccess
+namespace Clinic.Models
 {
   public class ClinicDbContext : IdentityDbContext<AppUser>
   {
@@ -16,12 +16,6 @@ namespace Clinic.DataAccess
     protected override void OnModelCreating(ModelBuilder builder)
     {
       base.OnModelCreating(builder);
-    }
-
-    public override int SaveChanges()
-    {
-      ChangeTracker.DetectChanges();
-      return base.SaveChanges();
     }
   }
 }

@@ -1,6 +1,6 @@
-namespace Clinic.Models
+namespace Clinic.Response
 {
-  public static class ResponseContentStatusMessages
+  public static class ResponseContent
   {
     public const string Success = "Success";
     public const string ExceptionEncounter = "ExceptionEncounter";

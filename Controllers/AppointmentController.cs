@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Clinic.Authentication;
-using Clinic.DataAccess;
-using Clinic.Exceptions;
 using Clinic.Models;
 using Clinic.Response;
 using Microsoft.AspNetCore.Authorization;
@@ -16,9 +14,8 @@ namespace Clinic.Controllers
 {
   public class AppointmentController : ControllerBase
   {
-
     [ApiController]
-    [Route("api/slots")]
+    [Route("api/appointments")]
     public class AppointmentsController : ControllerBase
     {
       private readonly ClinicDbContext context;
@@ -32,7 +29,6 @@ namespace Clinic.Controllers
       [HttpPost]
       public async Task<Appointment> BookSlot([FromBody] SlotRequest newSlot)
       {
-
         Guid idg = Guid.NewGuid();
         var records = (newSlot).MapProperties<Appointment>();
         records.Id = idg.ToString();
@@ -42,15 +38,12 @@ namespace Clinic.Controllers
         return records;
       }
 
-
       //Cancel appoinment
       [HttpPatch("cancel/{id}")]
       public async Task CancelSlot(string id)
       {
         try
-
         {
-
           Appointment slot = context.Appointment.Where(d => d.Id.Equals(id)).Single();
           if (slot == null)
             throw new Exception("no slot was found");
@@ -59,11 +52,10 @@ namespace Clinic.Controllers
           context.Appointment.Update(slot);
           context.SaveChanges();
 
-          var response = new SuccessResponseContent<Appointment>
+          var response = new SuccessResponse<Appointment>
           {
             ResultData = slot
           };
-
 
           Response.StatusCode = 200;
           Response.ContentType = "application/json";
@@ -71,10 +63,9 @@ namespace Clinic.Controllers
         }
         catch (Exception e)
         {
-
-          var failedResponse = new FailedResponseContent
+          var failedResponse = new FailedResponse
           {
-            StatusMessage = ResponseContentStatusMessages.ExceptionEncounter,
+            StatusMessage = ResponseContent.ExceptionEncounter,
             Error = e
           };
 
@@ -84,7 +75,6 @@ namespace Clinic.Controllers
         }
       }
 
-
       //View appointment details
       [HttpGet("{id}")]
       public IEnumerable<Appointment> ViewDetails(string id)
@@ -92,19 +82,17 @@ namespace Clinic.Controllers
         return context.Appointment.Where(d => d.Id.Equals(id));
       }
 
-
       //View patient appointment history
       [HttpGet("patient/{id}")]
       public PatientInfo ViewHistory(string id)
       {
         // get all the patient appointments
         List<Appointment> patientSlots = context.Appointment.Where(d => d.PatientID.Equals(id)).ToList();
-        PatientInfo response = new PatientInfo();
-        response.Id = id;
-        response.History = patientSlots;
+        PatientInfo info = new PatientInfo();
+        info.Id = id;
+        info.History = patientSlots;
 
-        return response;
-
+        return info;
       }
     }
   }

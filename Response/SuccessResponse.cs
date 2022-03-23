@@ -1,10 +1,10 @@
-using Clinic.Models;
+// using Clinic.Models;
 
-namespace Clinic.Exceptions
+namespace Clinic.Response
 {
-  public class SuccessResponseContent<T>
+  public class SuccessResponse<T>
   {
-    public string StatusMessage = ResponseContentStatusMessages.Success;
+    public string StatusMessage = ResponseContent.Success;
     public T ResultData { get; set; }
   }
 }
