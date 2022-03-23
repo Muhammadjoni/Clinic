@@ -160,17 +160,14 @@ namespace Clinic.Controllers
 
       for (int i = 0; i < dr.Count(); i++)
       {
-
         if (dr[i].Slots.Count() > 6)
         {
 
           sixHoursList.Add(dr[i]);
         }
-
       }
 
       return sixHoursList;
-
     }
   }
 }
